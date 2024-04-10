@@ -19,6 +19,7 @@ function add() {
   createAndWriteOutput('+', initialResult, enteredNumber)
   logEntries.push(currentResult);
   console.log(logEntries[logEntries.length - 1],logEntries); //Last and List Value
+  console.log(logEntries.length);
 }
 
 function subtract() {
