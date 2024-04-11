@@ -12,6 +12,17 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   return outputResult(currentResult, calcDescription)
 }
 
+function writeToLog(operationIdentifier, prevResult, operationNumber, newResult){
+  const logEntry = {
+      operation : operationIdentifier,
+      prevResult : prevResult,
+      number : operationNumber,
+      result : newResult
+    } //객체
+  console.log(logEntry);
+  logEntries.push(logEntry)
+}
+
 function add() {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult
@@ -19,7 +30,8 @@ function add() {
   createAndWriteOutput('+', initialResult, enteredNumber)
   logEntries.push(currentResult);
   console.log(logEntries[logEntries.length - 1],logEntries); //Last and List Value
-  console.log(logEntries.length);
+  writeToLog("+",initialResult, enteredNumber, currentResult);
+
 }
 
 function subtract() {
@@ -27,6 +39,8 @@ function subtract() {
   const initialResult = currentResult
   currentResult -= enteredNumber;
   createAndWriteOutput('-', initialResult, enteredNumber)
+  writeToLog("-",initialResult, enteredNumber, currentResult);
+
 }
 
 function multiply() {
@@ -34,6 +48,8 @@ function multiply() {
   const initialResult = currentResult
   currentResult *= enteredNumber;
   createAndWriteOutput('*', initialResult, enteredNumber)
+  writeToLog("*",initialResult, enteredNumber, currentResult);
+
 }
 
 function divide() {
@@ -41,6 +57,8 @@ function divide() {
   const initialResult = currentResult
   currentResult /= enteredNumber;
   createAndWriteOutput('/', initialResult, enteredNumber)
+  writeToLog("/",initialResult, enteredNumber, currentResult);
+
 }
 
 addBtn.addEventListener("click", add);
