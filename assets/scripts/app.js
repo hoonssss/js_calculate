@@ -9,6 +9,7 @@ function getUserNumberInput() {
 
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`
+  console.log(typeof calcDescription); //type 검사
   return outputResult(currentResult, calcDescription)
 }
 
