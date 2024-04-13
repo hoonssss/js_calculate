@@ -28,13 +28,13 @@ function calculateResult(calculationType){
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult
   let mathOperator;
-  if(calculationType === "add"){
+  if(calculationType === "Add"){
     currentResult += enteredNumber;
     mathOperator = "+";
-  } else if (calculationType === "subtract"){
+  } else if (calculationType === "Subtract"){
     currentResult -= enteredNumber;
     mathOperator = "-";
-  } else if (calculationType === "multiply"){
+  } else if (calculationType === "Multiply"){
     currentResult *= enteredNumber;
     mathOperator = "*";
   } else{
@@ -46,15 +46,15 @@ function calculateResult(calculationType){
 }
 
 function add() {
-  calculateResult("add");
+  calculateResult("Add");
 }
 
 function subtract() {
-  calculateResult("subtract")
+  calculateResult("Subtract")
 }
 
 function multiply() {
-  calculateResult("multiply")
+  calculateResult("Multiply")
 }
 
 function divide() {
