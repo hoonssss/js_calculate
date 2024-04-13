@@ -10,7 +10,7 @@ function getUserNumberInput() {
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`
   console.log(typeof calcDescription); //type 검사
-  return outputResult(currentResult, calcDescription)
+  return outputResult(currentResult, calcDescription);
 }
 
 function writeToLog(operationIdentifier, prevResult, operationNumber, newResult){
@@ -21,45 +21,44 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
       result : newResult
     } //객체
   console.log(logEntry);
-  logEntries.push(logEntry)
+  logEntries.push(logEntry);
+}
+
+function calculateResult(calculationType){
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult
+  let mathOperator;
+  if(calculationType === "add"){
+    currentResult += enteredNumber;
+    mathOperator = "+";
+  } else if (calculationType === "subtract"){
+    currentResult -= enteredNumber;
+    mathOperator = "-";
+  } else if (calculationType === "multiply"){
+    currentResult *= enteredNumber;
+    mathOperator = "*";
+  } else{
+    currentResult /= enteredNumber;
+    mathOperator = "/";
+  }
+  createAndWriteOutput(mathOperator, initialResult, enteredNumber)
+  writeToLog(calculationType,initialResult, enteredNumber, currentResult);
 }
 
 function add() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult
-  currentResult += enteredNumber;
-  createAndWriteOutput('+', initialResult, enteredNumber)
-  logEntries.push(currentResult);
-  console.log(logEntries[logEntries.length - 1],logEntries); //Last and List Value
-  writeToLog("+",initialResult, enteredNumber, currentResult);
-
+  calculateResult("add");
 }
 
 function subtract() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult
-  currentResult -= enteredNumber;
-  createAndWriteOutput('-', initialResult, enteredNumber)
-  writeToLog("-",initialResult, enteredNumber, currentResult);
-
+  calculateResult("subtract")
 }
 
 function multiply() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult
-  currentResult *= enteredNumber;
-  createAndWriteOutput('*', initialResult, enteredNumber)
-  writeToLog("*",initialResult, enteredNumber, currentResult);
-
+  calculateResult("multiply")
 }
 
 function divide() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult
-  currentResult /= enteredNumber;
-  createAndWriteOutput('/', initialResult, enteredNumber)
-  writeToLog("/",initialResult, enteredNumber, currentResult);
-
+  calculateResult("divide")
 }
 
 addBtn.addEventListener("click", add);
