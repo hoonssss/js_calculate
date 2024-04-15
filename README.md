@@ -1,1 +1,1 @@
-## JavaScript 기본 문법
+## JavaScript 계산기
